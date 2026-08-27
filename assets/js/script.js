@@ -29,7 +29,7 @@ if (form) {
 
     const accessKey = form.querySelector('[name="access_key"]').value;
     if (!accessKey || accessKey === 'WEB3FORMS_ACCESS_KEY') {
-      statusEl.textContent = 'Form isn\'t fully set up yet — please email MJL@lambtech.org directly for now.';
+      statusEl.textContent = 'Form isn\'t fully set up yet. Please email MJL@lambtech.org directly for now.';
       statusEl.className = 'form-status error';
       return;
     }
@@ -48,14 +48,14 @@ if (form) {
       const data = await res.json();
 
       if (data.success) {
-        statusEl.textContent = 'Thanks — your message has been sent. We\'ll be in touch soon.';
+        statusEl.textContent = 'Thanks, your message has been sent. We\'ll be in touch soon.';
         statusEl.className = 'form-status success';
         form.reset();
       } else {
         throw new Error(data.message || 'Something went wrong.');
       }
     } catch (err) {
-      statusEl.textContent = 'Something went wrong sending your message — please email MJL@lambtech.org directly.';
+      statusEl.textContent = 'Something went wrong sending your message. Please email MJL@lambtech.org directly.';
       statusEl.className = 'form-status error';
     } finally {
       submitBtn.disabled = false;

@@ -214,7 +214,7 @@ a { color: inherit; text-decoration: none; }
 .hero-inner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
   gap: 48px;
   align-items: center;
 }
@@ -249,18 +249,18 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-logo img {
   width: 100%;
-  max-width: 280px;
+  max-width: 400px;
   height: auto;
   filter: brightness(0) invert(1);
   opacity: 0.92;
 }
 @media (max-width: 1100px) {
-  .hero-logo img { max-width: 220px; }
+  .hero-logo img { max-width: 300px; }
 }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; gap: 8px; }
   .hero-logo { order: -1; padding: 0 0 12px; }
-  .hero-logo img { max-width: 180px; }
+  .hero-logo img { max-width: 240px; }
 }
 @media (max-width: 560px) {
   .hero-logo { display: none; }
@@ -334,9 +334,8 @@ a { color: inherit; text-decoration: none; }
 }
 .experience-inner {
   display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 18px;
 }
 .experience-label {
   margin: 0;
@@ -345,19 +344,18 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--olive);
-  white-space: nowrap;
 }
 .experience-names {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px 28px;
+  gap: 34px 44px;
 }
-.experience-names span {
-  font-family: var(--font-head);
-  font-size: 15px;
-  letter-spacing: 0.03em;
-  color: var(--ink-soft);
-  white-space: nowrap;
+.experience-names img {
+  height: 26px;
+  width: auto;
+  display: block;
+  opacity: 0.82;
 }
 
 /* Services */
