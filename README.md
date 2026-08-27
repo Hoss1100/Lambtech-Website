@@ -4,10 +4,11 @@ The Lambtech LLC landing page — a static site (plain HTML/CSS/JS, no build ste
 
 ## Structure
 
-- `index.html` — all page content
+- `index.html` — the landing page
+- `privacy.html` / `terms.html` — legal pages, linked in the footer
 - `assets/css/style.css` — all styling
 - `assets/js/script.js` — mobile nav + contact form handling
-- `assets/img/` — logo, favicon, headshot
+- `assets/img/` — logo, favicon, headshot, social preview image
 - `CNAME` — tells GitHub Pages this site should serve on the lambtech.org custom domain
 
 ## Making changes
