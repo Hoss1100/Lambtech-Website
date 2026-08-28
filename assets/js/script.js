@@ -23,14 +23,30 @@ const form = document.getElementById('contactForm');
 const statusEl = document.getElementById('formStatus');
 const submitBtn = document.getElementById('submitBtn');
 
+const CONTACT_EMAIL = 'MJL@lambtech.org';
+
+function sendViaMailto(form, statusEl) {
+  const name = form.querySelector('#name').value.trim();
+  const email = form.querySelector('#email').value.trim();
+  const message = form.querySelector('#message').value.trim();
+
+  const subject = `New inquiry from ${name || 'lambtech.org'}`;
+  const body = `${message}\n\n—\n${name}\n${email}`;
+  const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoUrl;
+  statusEl.textContent = `Opening your email app to send this to ${CONTACT_EMAIL}. If nothing opens, email us directly.`;
+  statusEl.className = 'form-status success';
+  form.reset();
+}
+
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const accessKey = form.querySelector('[name="access_key"]').value;
     if (!accessKey || accessKey === 'WEB3FORMS_ACCESS_KEY') {
-      statusEl.textContent = 'Form isn\'t fully set up yet. Please email MJL@lambtech.org directly for now.';
-      statusEl.className = 'form-status error';
+      sendViaMailto(form, statusEl);
       return;
     }
 
@@ -55,8 +71,7 @@ if (form) {
         throw new Error(data.message || 'Something went wrong.');
       }
     } catch (err) {
-      statusEl.textContent = 'Something went wrong sending your message. Please email MJL@lambtech.org directly.';
-      statusEl.className = 'form-status error';
+      sendViaMailto(form, statusEl);
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
